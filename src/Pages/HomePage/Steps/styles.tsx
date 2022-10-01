@@ -51,6 +51,7 @@ export const UrlCustomInput = styled(Grid)`
   border: 1px solid #e4e7ec;
   padding: 0;
   background-color: #f2f4f7;
+  border-radius: 8px;
   .urlExample {
     width: 40%;
     height: auto;
@@ -60,4 +61,13 @@ export const UrlCustomInput = styled(Grid)`
     align-items: center;
     justify-content: center;
   }
+`;
+
+export const CardArea = styled(Grid)`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  min-height: 300px;
+  padding: 0.5rem;
 `;

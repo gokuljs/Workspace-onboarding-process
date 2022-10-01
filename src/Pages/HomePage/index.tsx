@@ -6,6 +6,8 @@ import Header from "../../Components/layout/HeaderLayout";
 import Welcome from "./Steps/Welcome";
 import eden from "../../assets/images/eden.png";
 import Setup from "./Steps/Setup";
+import Planning from "./Steps/Planning";
+import CtaButton from "../../Components/core/ctaButton";
 
 function HomePage() {
   const [edenIntegrationStep, setEdenIntegrationStep] =
@@ -45,9 +47,12 @@ function HomePage() {
     switch (true) {
       case edenIntegrationStep === EdenIntegrationSteps.WELCOME:
         return <Welcome setEdenIntegrationStep={setEdenIntegrationStep} />;
-
       case edenIntegrationStep === EdenIntegrationSteps.SETUP:
         return <Setup setEdenIntegrationStep={setEdenIntegrationStep} />;
+      case edenIntegrationStep === EdenIntegrationSteps.PLANNING:
+        return <Planning setEdenIntegrationStep={setEdenIntegrationStep} />;
+      case edenIntegrationStep === EdenIntegrationSteps.COMPLETED:
+        return <CtaButton btnText="Launch Eden" />;
       default:
         return <></>;
     }
