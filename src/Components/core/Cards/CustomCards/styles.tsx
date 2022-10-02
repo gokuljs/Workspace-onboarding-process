@@ -22,6 +22,9 @@ export const CustomCArdWrapper = styled(Grid)(
       wordBreak: "keep-all",
       fontFamily: "Inter,sans-serif ",
     },
+    ".avatar": {
+      color: selected ? "#6c2be2" : "default",
+    },
     ":hover": {
       boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
     },
