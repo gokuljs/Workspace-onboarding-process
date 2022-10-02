@@ -1,12 +1,12 @@
 import React from "react";
 import HomePage from "./Pages/HomePage";
-import { EdenContainer } from "./styles";
+import { Container } from "./styles";
 
 function App() {
   return (
-    <EdenContainer>
+    <Container>
       <HomePage />
-    </EdenContainer>
+    </Container>
   );
 }
 

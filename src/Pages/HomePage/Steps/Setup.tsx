@@ -1,6 +1,6 @@
 import React, { Dispatch } from "react";
 import CtaButton from "../../../Components/core/Buttons/CTAButton";
-import { EdenIntegrationSteps } from "../types";
+import { IntegrationStepsProps } from "../types";
 import {
   CustomInput,
   GridAlignMent,
@@ -8,23 +8,29 @@ import {
   InPutArea,
   UrlCustomInput,
   CustomForm,
+  ErrorText,
 } from "./styles";
 import { Grid } from "@mui/material";
 import { useForm } from "react-hook-form";
+import { ErrorMessage } from "@hookform/error-message";
 
 function Setup({
-  setEdenIntegrationStep,
-  setEdenFormData,
-  edenFormData,
+  setIntegrationStep,
+  setFormData,
+  formData,
 }: {
-  setEdenIntegrationStep: Dispatch<EdenIntegrationSteps>;
-  setEdenFormData: Dispatch<any>;
-  edenFormData: any;
+  setIntegrationStep: Dispatch<IntegrationStepsProps>;
+  setFormData: Dispatch<any>;
+  formData: any;
 }) {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const onSubmit = (data: any) => {
-    setEdenFormData({ ...edenFormData, ...data });
-    setEdenIntegrationStep(EdenIntegrationSteps.PLANNING);
+    setFormData({ ...formData, ...data });
+    setIntegrationStep(IntegrationStepsProps.PLANNING);
   };
 
   return (
@@ -33,8 +39,18 @@ function Setup({
         <GridAlignMent container justifyContent="flex-start" minHeight="10rem">
           <InputContainer>
             <p className="label">Workspace Name</p>
-            <CustomInput placeholder="Eden" {...register("workSpaceUrl")} />
+            <CustomInput
+              placeholder="Eden"
+              {...register("workSpaceUrl", {
+                required: "please Enter your workSpace Url",
+              })}
+            />
           </InputContainer>
+          <ErrorMessage
+            errors={errors}
+            name="workSpaceUrl"
+            render={({ message }) => <ErrorText>{message}</ErrorText>}
+          />
           <InputContainer>
             <p className="label">
               Workspace Url <span className="optional">(optional)</span>

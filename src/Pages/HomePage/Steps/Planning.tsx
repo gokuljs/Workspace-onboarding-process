@@ -3,10 +3,10 @@ import CustomCard from "../../../Components/core/Cards/CustomCards/Index";
 import { CardArea, GridAlignMent, InPutArea } from "./styles";
 import PersonIcon from "@mui/icons-material/Person";
 import CtaButton from "../../../Components/core/Buttons/CTAButton";
-import { EdenIntegrationSteps } from "../types";
+import { IntegrationStepsProps } from "../types";
 
 export type CurrentState = "MYSELF" | "TEAM" ;
-function Planning({setEdenIntegrationStep,setEdenFormData,edenFormData}:{setEdenIntegrationStep:Dispatch<EdenIntegrationSteps>, setEdenFormData:Dispatch<any>,edenFormData:any}) {
+function Planning({setIntegrationStep,setFormData,formData}:{setIntegrationStep:Dispatch<IntegrationStepsProps>, setFormData:Dispatch<any>,formData:any}) {
   const [cardState, setCardState] = useState<CurrentState>("MYSELF");
   return (
     <InPutArea lg={12} container>
@@ -32,8 +32,8 @@ function Planning({setEdenIntegrationStep,setEdenFormData,edenFormData}:{setEden
         <CtaButton
           btnText="create workSpace"
           handleClick={() =>{
-            setEdenIntegrationStep(EdenIntegrationSteps.COMPLETED);
-            setEdenFormData({...edenFormData, planningToUseEden:cardState})
+            setIntegrationStep(IntegrationStepsProps.COMPLETED);
+            setFormData({...formData, planningToUseEden:cardState})
           }
           }
         />

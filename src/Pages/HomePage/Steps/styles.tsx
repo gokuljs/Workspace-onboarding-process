@@ -77,3 +77,10 @@ export const CustomForm = styled("form")`
   height: 100%;
   padding: 0;
 `;
+
+export const ErrorText = styled("p")`
+  color: red;
+  font-size: 0.7rem;
+  padding: 0;
+  font-family: Inter, sans-serif;
+`;

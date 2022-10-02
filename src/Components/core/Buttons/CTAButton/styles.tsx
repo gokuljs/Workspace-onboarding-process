@@ -9,6 +9,7 @@ export const CtaButtonWrapper = styled(Button)`
   font-size: 1rem;
   transition: 0.3s all ease-in-out;
   border-radius: 0.5rem;
+  border: 1px solid transparent;
   :hover {
     color: #6c2be2;
     background-color: #fff;

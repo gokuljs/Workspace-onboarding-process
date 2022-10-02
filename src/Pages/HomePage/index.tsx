@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ColorlibConnector, HomePageWrapper, StepIcon } from "./styles";
 import { Grid } from "@mui/material";
-import { EdenIntegrationSteps } from "./types";
+import { IntegrationStepsProps } from "./types";
 import Header from "../../Components/layout/HeaderLayout";
 import Welcome from "./Steps/Welcome";
 import eden from "../../assets/images/eden.png";
@@ -15,32 +15,33 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 
 function HomePage() {
-  const [edenIntegrationStep, setEdenIntegrationStep] =
-    useState<EdenIntegrationSteps>(EdenIntegrationSteps.WELCOME);
-  const [edenFormData, setEdenFormData] = useState<any>({});
+  const [integrationStep, setIntegrationStep] = useState<IntegrationStepsProps>(
+    IntegrationStepsProps.WELCOME
+  );
+  const [formData, setFormData] = useState<any>({});
   const steps = ["welcome", "setup", "planning", "completed"];
 
-  const handleEdenIntegrationHeader = () => {
+  const integrationHeaderInfo = () => {
     switch (true) {
-      case edenIntegrationStep === EdenIntegrationSteps.WELCOME:
+      case integrationStep === IntegrationStepsProps.WELCOME:
         return {
           header: "Welcome! First things first",
           subtext: "you can always change them Later",
         };
-      case edenIntegrationStep === EdenIntegrationSteps.SETUP:
+      case integrationStep === IntegrationStepsProps.SETUP:
         return {
           header: "Let's set up a home for all your work",
           subtext: "you can always create another workspace later",
         };
-      case edenIntegrationStep === EdenIntegrationSteps.PLANNING:
+      case integrationStep === IntegrationStepsProps.PLANNING:
         return {
           header: "How are you planning to use Eden",
           subtext: "We'll streamline your setup experience accordingly",
         };
 
-      case edenIntegrationStep === EdenIntegrationSteps.COMPLETED:
+      case integrationStep === IntegrationStepsProps.COMPLETED:
         return {
-          header: `Congratulations, ${edenFormData?.displayName ?? " "}!`,
+          header: `Congratulations, ${formData?.displayName ?? " "}!`,
           subtext: "You have completed onboarding,you can start using Eden",
         };
       default:
@@ -52,31 +53,31 @@ function HomePage() {
   };
   const handleIntegrationSteps = () => {
     switch (true) {
-      case edenIntegrationStep === EdenIntegrationSteps.WELCOME:
+      case integrationStep === IntegrationStepsProps.WELCOME:
         return (
           <Welcome
-            setEdenIntegrationStep={setEdenIntegrationStep}
-            setEdenFormData={setEdenFormData}
-            edenFormData={edenFormData}
+            setIntegrationStep={setIntegrationStep}
+            setFormData={setFormData}
+            formData={formData}
           />
         );
-      case edenIntegrationStep === EdenIntegrationSteps.SETUP:
+      case integrationStep === IntegrationStepsProps.SETUP:
         return (
           <Setup
-            setEdenIntegrationStep={setEdenIntegrationStep}
-            setEdenFormData={setEdenFormData}
-            edenFormData={edenFormData}
+            setIntegrationStep={setIntegrationStep}
+            setFormData={setFormData}
+            formData={formData}
           />
         );
-      case edenIntegrationStep === EdenIntegrationSteps.PLANNING:
+      case integrationStep === IntegrationStepsProps.PLANNING:
         return (
           <Planning
-            setEdenIntegrationStep={setEdenIntegrationStep}
-            setEdenFormData={setEdenFormData}
-            edenFormData={edenFormData}
+            setIntegrationStep={setIntegrationStep}
+            setFormData={setFormData}
+            formData={formData}
           />
         );
-      case edenIntegrationStep === EdenIntegrationSteps.COMPLETED:
+      case integrationStep === IntegrationStepsProps.COMPLETED:
         return <CtaButton btnText="Launch Eden" />;
       default:
         return <></>;
@@ -102,7 +103,7 @@ function HomePage() {
       >
         <Box className="stepperContainer">
           <Stepper
-            activeStep={edenIntegrationStep + 1}
+            activeStep={integrationStep + 1}
             alternativeLabel
             connector={<ColorlibConnector />}
           >
@@ -111,7 +112,7 @@ function HomePage() {
                 <StepLabel
                   icon={
                     <StepIcon
-                      completed={index <= edenIntegrationStep ? true : false}
+                      completed={index <= integrationStep ? true : false}
                     >
                       <p>{index + 1}</p>
                     </StepIcon>
@@ -124,8 +125,8 @@ function HomePage() {
       </Grid>
       <Grid container xs={12}>
         <Header
-          heading={handleEdenIntegrationHeader()?.header}
-          subtext={handleEdenIntegrationHeader()?.subtext}
+          heading={integrationHeaderInfo()?.header}
+          subtext={integrationHeaderInfo()?.subtext}
         />
       </Grid>
       <Grid

@@ -1,6 +1,6 @@
 import { styled, Container as MuiContainer } from "@mui/material";
 
-export const EdenContainer = styled(MuiContainer)`
+export const Container = styled(MuiContainer)`
   display: flex;
   justify-content: center;
   align-items: center;
