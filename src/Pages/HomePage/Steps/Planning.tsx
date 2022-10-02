@@ -3,6 +3,7 @@ import CustomCard from "../../../Components/core/Cards/CustomCards/Index";
 import { CardArea, GridAlignMent, InPutArea } from "./styles";
 import PersonIcon from "@mui/icons-material/Person";
 import CtaButton from "../../../Components/core/Buttons/CTAButton";
+import GroupsIcon from '@mui/icons-material/Groups';
 import { IntegrationStepsProps } from "../types";
 
 export type CurrentState = "MYSELF" | "TEAM" ;
@@ -12,14 +13,14 @@ function Planning({setIntegrationStep,setFormData,formData}:{setIntegrationStep:
     <InPutArea lg={12} container>
     <CardArea>
       <CustomCard
-        avatar=<PersonIcon/>
+        avatar=<PersonIcon className="avatar"/>
         header="For myself"
         subtext="Write better.Think more Clearly. Stay organized"
         selected={cardState === "MYSELF"}
         handleClick={() => setCardState("MYSELF")}
       />
       <CustomCard
-        avatar=<PersonIcon/>
+        avatar=<GroupsIcon className="avatar"/>
         header="With my team"
         subtext="Wikis ,docs ,tasks & projects,all in one place"
         selected={cardState === "TEAM"}

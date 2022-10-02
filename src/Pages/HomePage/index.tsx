@@ -13,12 +13,15 @@ import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
+import CustomSnakeBar from "../../Components/core/SnackBar";
 
 function HomePage() {
   const [integrationStep, setIntegrationStep] = useState<IntegrationStepsProps>(
     IntegrationStepsProps.WELCOME
   );
   const [formData, setFormData] = useState<any>({});
+  const [open, setOpen] = useState(false);
+
   const steps = ["welcome", "setup", "planning", "completed"];
 
   const integrationHeaderInfo = () => {
@@ -78,7 +81,9 @@ function HomePage() {
           />
         );
       case integrationStep === IntegrationStepsProps.COMPLETED:
-        return <CtaButton btnText="Launch Eden" />;
+        return (
+          <CtaButton btnText="Launch Eden" handleClick={() => setOpen(true)} />
+        );
       default:
         return <></>;
     }
@@ -139,6 +144,12 @@ function HomePage() {
       >
         {handleIntegrationSteps()}
       </Grid>
+      <CustomSnakeBar
+        message="onBoarding setup successful 🚀"
+        open={open}
+        setOpen={setOpen}
+        type="success"
+      />
     </HomePageWrapper>
   );
 }
