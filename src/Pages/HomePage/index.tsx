@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { ColorlibConnector, HomePageWrapper } from "./styles";
-import { Grid } from "@mui/material";
+import { ColorlibConnector, HomePageWrapper, StepIcon } from "./styles";
+import { Grid, StepIconProps, styled } from "@mui/material";
 import { EdenIntegrationSteps } from "./types";
 import Header from "../../Components/layout/HeaderLayout";
 import Welcome from "./Steps/Welcome";
@@ -17,7 +17,6 @@ import StepLabel from "@mui/material/StepLabel";
 function HomePage() {
   const [edenIntegrationStep, setEdenIntegrationStep] =
     useState<EdenIntegrationSteps>(EdenIntegrationSteps.WELCOME);
-
   const steps = ["welcome", "setup", "planning", "completed"];
 
   const handleEdenIntegrationHeader = () => {
@@ -84,13 +83,21 @@ function HomePage() {
       >
         <Box className="stepperContainer">
           <Stepper
-            activeStep={edenIntegrationStep}
+            activeStep={edenIntegrationStep + 1}
             alternativeLabel
             connector={<ColorlibConnector />}
           >
-            {steps.map((label) => (
+            {steps.map((label, index) => (
               <Step key={label}>
-                <StepLabel />
+                <StepLabel
+                  icon={
+                    <StepIcon
+                      completed={index <= edenIntegrationStep ? true : false}
+                    >
+                      <p>{index + 1}</p>
+                    </StepIcon>
+                  }
+                />
               </Step>
             ))}
           </Stepper>

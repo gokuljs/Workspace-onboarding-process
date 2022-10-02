@@ -20,7 +20,7 @@ export const HomePageWrapper = styled(Grid)`
 
 export const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
-    top: 12,
+    top: 17,
   },
   [`&.${stepConnectorClasses.active}`]: {
     [`& .${stepConnectorClasses.line}`]: {
@@ -42,3 +42,17 @@ export const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
     borderRadius: 1,
   },
 }));
+
+export const StepIcon = styled("div")(
+  ({ completed }: { completed: boolean }) => ({
+    width: "2.5rem",
+    height: "2.5rem",
+    display: "flex",
+    background: completed ? "#784af4" : "rgba(234,234,240,1) ",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: "24px",
+    color: completed ? "rgba(234,234,240,1) " : "black",
+    fontFamily: "Inter sans-serif",
+  })
+);
