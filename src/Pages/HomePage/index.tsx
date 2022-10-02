@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ColorlibConnector, HomePageWrapper, StepIcon } from "./styles";
-import { Grid, StepIconProps, styled } from "@mui/material";
+import { Grid } from "@mui/material";
 import { EdenIntegrationSteps } from "./types";
 import Header from "../../Components/layout/HeaderLayout";
 import Welcome from "./Steps/Welcome";
@@ -17,6 +17,7 @@ import StepLabel from "@mui/material/StepLabel";
 function HomePage() {
   const [edenIntegrationStep, setEdenIntegrationStep] =
     useState<EdenIntegrationSteps>(EdenIntegrationSteps.WELCOME);
+  const [edenFormData, setEdenFormData] = useState<any>({});
   const steps = ["welcome", "setup", "planning", "completed"];
 
   const handleEdenIntegrationHeader = () => {
@@ -39,7 +40,7 @@ function HomePage() {
 
       case edenIntegrationStep === EdenIntegrationSteps.COMPLETED:
         return {
-          header: "Congratulations, Eren!",
+          header: `Congratulations, ${edenFormData?.displayName ?? " "}!`,
           subtext: "You have completed onboarding,you can start using Eden",
         };
       default:
@@ -52,11 +53,29 @@ function HomePage() {
   const handleIntegrationSteps = () => {
     switch (true) {
       case edenIntegrationStep === EdenIntegrationSteps.WELCOME:
-        return <Welcome setEdenIntegrationStep={setEdenIntegrationStep} />;
+        return (
+          <Welcome
+            setEdenIntegrationStep={setEdenIntegrationStep}
+            setEdenFormData={setEdenFormData}
+            edenFormData={edenFormData}
+          />
+        );
       case edenIntegrationStep === EdenIntegrationSteps.SETUP:
-        return <Setup setEdenIntegrationStep={setEdenIntegrationStep} />;
+        return (
+          <Setup
+            setEdenIntegrationStep={setEdenIntegrationStep}
+            setEdenFormData={setEdenFormData}
+            edenFormData={edenFormData}
+          />
+        );
       case edenIntegrationStep === EdenIntegrationSteps.PLANNING:
-        return <Planning setEdenIntegrationStep={setEdenIntegrationStep} />;
+        return (
+          <Planning
+            setEdenIntegrationStep={setEdenIntegrationStep}
+            setEdenFormData={setEdenFormData}
+            edenFormData={edenFormData}
+          />
+        );
       case edenIntegrationStep === EdenIntegrationSteps.COMPLETED:
         return <CtaButton btnText="Launch Eden" />;
       default:

@@ -2,9 +2,13 @@ import React from "react";
 import { CtaButtonWrapper } from "./styles";
 import { CtaButtonProps } from "./types";
 
-function CtaButton({ btnText, handleClick = () => {} }: CtaButtonProps) {
+function CtaButton({
+  btnText,
+  handleClick = () => {},
+  type = "button",
+}: CtaButtonProps) {
   return (
-    <CtaButtonWrapper variant="contained" onClick={handleClick}>
+    <CtaButtonWrapper type={type} variant="contained" onClick={handleClick}>
       {btnText?.toLowerCase()}
     </CtaButtonWrapper>
   );

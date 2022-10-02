@@ -5,9 +5,9 @@ import PersonIcon from "@mui/icons-material/Person";
 import CtaButton from "../../../Components/core/Buttons/CTAButton";
 import { EdenIntegrationSteps } from "../types";
 
-export type CurrentState = "MYSELF" | "TEAM" | "DEFAULT";
-function Planning({setEdenIntegrationStep}:{setEdenIntegrationStep:Dispatch<EdenIntegrationSteps>}) {
-  const [cardState, setCardState] = useState<CurrentState>("DEFAULT");
+export type CurrentState = "MYSELF" | "TEAM" ;
+function Planning({setEdenIntegrationStep,setEdenFormData,edenFormData}:{setEdenIntegrationStep:Dispatch<EdenIntegrationSteps>, setEdenFormData:Dispatch<any>,edenFormData:any}) {
+  const [cardState, setCardState] = useState<CurrentState>("MYSELF");
   return (
     <InPutArea lg={12} container>
     <CardArea>
@@ -31,8 +31,10 @@ function Planning({setEdenIntegrationStep}:{setEdenIntegrationStep:Dispatch<Eden
        <GridAlignMent container justifyContent="center">
         <CtaButton
           btnText="create workSpace"
-          handleClick={() =>
-            setEdenIntegrationStep(EdenIntegrationSteps.COMPLETED)
+          handleClick={() =>{
+            setEdenIntegrationStep(EdenIntegrationSteps.COMPLETED);
+            setEdenFormData({...edenFormData, planningToUseEden:cardState})
+          }
           }
         />
       </GridAlignMent>

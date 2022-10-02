@@ -71,3 +71,9 @@ export const CardArea = styled(Grid)`
   min-height: 300px;
   padding: 0.5rem;
 `;
+
+export const CustomForm = styled("form")`
+  width: 100%;
+  height: 100%;
+  padding: 0;
+`;
