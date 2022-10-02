@@ -2,7 +2,7 @@ import React, { Dispatch, useState } from "react";
 import CustomCard from "../../../Components/core/Cards/CustomCards/Index";
 import { CardArea, GridAlignMent, InPutArea } from "./styles";
 import PersonIcon from "@mui/icons-material/Person";
-import CtaButton from "../../../Components/core/ctaButton";
+import CtaButton from "../../../Components/core/Buttons/CTAButton";
 import { EdenIntegrationSteps } from "../types";
 
 export type CurrentState = "MYSELF" | "TEAM" | "DEFAULT";

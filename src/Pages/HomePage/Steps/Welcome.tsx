@@ -5,7 +5,7 @@ import {
   InputContainer,
   InPutArea,
 } from "./styles";
-import CtaButton from "../../../Components/core/ctaButton";
+import CtaButton from "../../../Components/core/Buttons/CTAButton";
 import { EdenIntegrationSteps } from "../types";
 
 function Welcome({
@@ -14,7 +14,7 @@ function Welcome({
   setEdenIntegrationStep: Dispatch<EdenIntegrationSteps>;
 }) {
   return (
-    <InPutArea xs={12} container>
+    <InPutArea container xs={12}>
       <GridAlignMent container justifyContent="flex-start" minHeight="10rem">
         <InputContainer>
           <p className="label">full name</p>

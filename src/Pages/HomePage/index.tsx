@@ -7,11 +7,18 @@ import Welcome from "./Steps/Welcome";
 import eden from "../../assets/images/eden.png";
 import Setup from "./Steps/Setup";
 import Planning from "./Steps/Planning";
-import CtaButton from "../../Components/core/ctaButton";
+import CtaButton from "../../Components/core/Buttons/CTAButton";
+
+import Box from "@mui/material/Box";
+import Stepper from "@mui/material/Stepper";
+import Step from "@mui/material/Step";
+import StepLabel from "@mui/material/StepLabel";
 
 function HomePage() {
   const [edenIntegrationStep, setEdenIntegrationStep] =
     useState<EdenIntegrationSteps>(EdenIntegrationSteps.WELCOME);
+
+  const steps = ["welcome", "setup", "planning", "completed"];
 
   const handleEdenIntegrationHeader = () => {
     switch (true) {
@@ -69,7 +76,23 @@ function HomePage() {
       >
         <img className="eden-logo" src={eden} alt="edn"></img>
       </Grid>
-      <Grid item xs={12}></Grid>
+      <Grid
+        container
+        xs={12}
+        display="flex"
+        justifyContent="center"
+        alignContent="center"
+      >
+        <Box className="stepperContainer">
+          <Stepper activeStep={edenIntegrationStep} alternativeLabel>
+            {steps.map((label) => (
+              <Step key={label}>
+                <StepLabel />
+              </Step>
+            ))}
+          </Stepper>
+        </Box>
+      </Grid>
       <Grid container xs={12}>
         <Header
           heading={handleEdenIntegrationHeader()?.header}

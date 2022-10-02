@@ -1,5 +1,5 @@
 import React, { Dispatch } from "react";
-import CtaButton from "../../../Components/core/ctaButton";
+import CtaButton from "../../../Components/core/Buttons/CTAButton";
 import { EdenIntegrationSteps } from "../types";
 import {
   CustomInput,

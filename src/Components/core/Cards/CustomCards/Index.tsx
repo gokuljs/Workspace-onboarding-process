@@ -1,6 +1,5 @@
 import React from "react";
 import { CustomCArdWrapper } from "./styles";
-import PersonIcon from "@mui/icons-material/Person";
 import { CustomCardProps } from "./types";
 
 function CustomCard({
