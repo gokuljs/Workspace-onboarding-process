@@ -15,6 +15,13 @@ export const HomePageWrapper = styled(Grid)`
   .stepperContainer {
     margin: 2rem 0rem;
     width: 60%;
+    @media screen and (max-width: 600px) {
+      width: 100%;
+    }
+  }
+  .celebration-icon {
+    font-size: 5rem;
+    color: rgba(120, 74, 244, 1);
   }
 `;
 

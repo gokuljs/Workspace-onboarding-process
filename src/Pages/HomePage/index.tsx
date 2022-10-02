@@ -8,7 +8,7 @@ import eden from "../../assets/images/eden.png";
 import Setup from "./Steps/Setup";
 import Planning from "./Steps/Planning";
 import CtaButton from "../../Components/core/Buttons/CTAButton";
-
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
@@ -128,6 +128,17 @@ function HomePage() {
           </Stepper>
         </Box>
       </Grid>
+      {integrationStep === IntegrationStepsProps.COMPLETED && (
+        <Grid
+          container
+          xs={12}
+          display="flex"
+          justifyContent="center"
+          alignContent="center"
+        >
+          <CheckCircleIcon className="celebration-icon" />
+        </Grid>
+      )}
       <Grid container xs={12}>
         <Header
           heading={integrationHeaderInfo()?.header}

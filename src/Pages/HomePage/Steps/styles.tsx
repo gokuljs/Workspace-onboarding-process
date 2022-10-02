@@ -28,6 +28,9 @@ export const InputContainer = styled(Grid)`
       font-family: Inter;
     }
   }
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
 `;
 export const CustomInput = styled("input")`
   min-height: 40px;
