@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { HomePageWrapper } from "./styles";
+import { ColorlibConnector, HomePageWrapper } from "./styles";
 import { Grid } from "@mui/material";
 import { EdenIntegrationSteps } from "./types";
 import Header from "../../Components/layout/HeaderLayout";
@@ -64,7 +64,6 @@ function HomePage() {
         return <></>;
     }
   };
-  console.log({ edenIntegrationStep }, "ssss");
   return (
     <HomePageWrapper container xs={12}>
       <Grid
@@ -84,7 +83,11 @@ function HomePage() {
         alignContent="center"
       >
         <Box className="stepperContainer">
-          <Stepper activeStep={edenIntegrationStep} alternativeLabel>
+          <Stepper
+            activeStep={edenIntegrationStep}
+            alternativeLabel
+            connector={<ColorlibConnector />}
+          >
             {steps.map((label) => (
               <Step key={label}>
                 <StepLabel />

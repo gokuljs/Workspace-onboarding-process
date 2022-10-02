@@ -8,7 +8,6 @@ import { EdenIntegrationSteps } from "../types";
 export type CurrentState = "MYSELF" | "TEAM" | "DEFAULT";
 function Planning({setEdenIntegrationStep}:{setEdenIntegrationStep:Dispatch<EdenIntegrationSteps>}) {
   const [cardState, setCardState] = useState<CurrentState>("DEFAULT");
-  console.log({ cardState }, "ssss");
   return (
     <InPutArea lg={12} container>
     <CardArea>
