@@ -39,7 +39,7 @@ function Welcome({
             <CustomInput placeholder="steve" {...register("displayName")} />
           </InputContainer>
         </GridAlignMent>
-        <GridAlignMent container justifyContent="center">
+        <GridAlignMent container justifyContent="center" py={5}>
           <CtaButton type="submit" btnText="create workSpace" />
         </GridAlignMent>
       </CustomForm>
